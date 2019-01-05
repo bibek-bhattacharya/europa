@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using Traditional;
+using Common;
+using ReactiveStyle;
 
 namespace Tests
 {
@@ -16,7 +17,7 @@ namespace Tests
         public void TestAlertOnIncrease()
         {
             var ticker = new StockTicker();
-            var monitor = new StockMonitor(ticker, 0.3m); // Max ratio: 0.3
+            var monitor = new RxStockMonitor(ticker, 0.3m); // Max ratio: 0.3
             var alerts = new List<StockAlert>();
 
             System.EventHandler<StockAlert> handlerAlert = (object sender, StockAlert alert) => { alerts.Add(alert); };
@@ -38,7 +39,7 @@ namespace Tests
         public void TestAlertOnDecrease()
         {
             var ticker = new StockTicker();
-            var monitor = new StockMonitor(ticker, 0.3m); // Max Change : 0.3
+            var monitor = new RxStockMonitor(ticker, 0.3m); // Max ratio: 0.3
             var alerts = new List<StockAlert>();
 
             System.EventHandler<StockAlert> handlerAlert = (object sender, StockAlert alert) => { alerts.Add(alert); };
@@ -61,7 +62,7 @@ namespace Tests
         public void TestMultipleAlerts()
         {
             var ticker = new StockTicker();
-            var monitor = new StockMonitor(ticker, 0.3m); // Max Change : 0.3
+            var monitor = new RxStockMonitor(ticker, 0.3m); // Max Change : 0.3
             var alerts = new List<StockAlert>();
 
             System.EventHandler<StockAlert> handlerAlert = (object sender, StockAlert alert) => { alerts.Add(alert); };
@@ -84,7 +85,7 @@ namespace Tests
         public void TestNoAlert()
         {
             var ticker = new StockTicker();
-            var monitor = new StockMonitor(ticker, 0.3m); // Max Change : 0.3
+            var monitor = new RxStockMonitor(ticker, 0.3m); // Max Change : 0.3
             var alerts = new List<StockAlert>();
 
             System.EventHandler<StockAlert> handlerAlert = (object sender, StockAlert alert) => { alerts.Add(alert); };

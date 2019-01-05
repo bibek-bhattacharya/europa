@@ -2,7 +2,8 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Traditional;
+using Common;
+using ReactiveStyle;
 
 namespace ReactiveApp
 {
@@ -24,7 +25,7 @@ namespace ReactiveApp
         private static void MonitorStock()
         {
             var ticker = new StockTicker();
-            var monitor = new StockMonitor(ticker, 0.3m);
+            var monitor = new RxStockMonitor(ticker, 0.3m);
             ticker.UpdateStock("MSFT", 100);
             ticker.UpdateStock("INTC", 150);
             ticker.UpdateStock("MSFT", 120);

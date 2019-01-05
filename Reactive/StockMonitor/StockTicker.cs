@@ -1,6 +1,6 @@
 using System;
 
-namespace Traditional
+namespace Common
 {
     public class StockTicker
     {
