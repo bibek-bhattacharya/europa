@@ -5,7 +5,7 @@ using Traditional;
 
 namespace Tests
 {
-    public class Tests
+    public class StockMonitorTests
     {
         [SetUp]
         public void Setup()
@@ -13,7 +13,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void TestAlerts()
         {
             var ticker = new StockTicker();
             var monitor = new StockMonitor(ticker, 0.3m); // Max ratio: 0.3
